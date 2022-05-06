@@ -55,6 +55,25 @@ public class serviceController {
     public ResponseEntity<?> registrarUsuario(@RequestBody Usuario usuario){
         Map<String,Object> response=new HashMap<>();
 
+
+        String regx = "[a-zA-Z\\d]+@[a-zA-Z\\d]+\\.[a-zA-Z]+";
+        Pattern pattern = Pattern.compile(regx);
+        Matcher matcher = pattern.matcher(usuario.getEmail());
+        if(!matcher.matches()){
+            response.put("mensaje", "Correo ingresado incorrectamente");
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+        }
+
+
+        String regPass="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%.;:^&+=])(?=\\S+$).{8,20}$";
+        Pattern patternPass = Pattern.compile(regPass);
+        Matcher matcherPass = patternPass.matcher(usuario.getPassword());
+        boolean b=matcherPass.matches();
+        if(!matcherPass.matches()){
+            response.put("mensaje", "Password con mal formato" );
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+        }
+
         Argon2 argon= Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
         String codi=new String();
         codi=argon.hash(1,1024,1,usuario.getPassword());
@@ -65,14 +84,6 @@ public class serviceController {
         usuario.setModified(hoy);
 
 
-        String regx = "[a-zA-Z]+@[a-zA-Z]+\\.[a-zA-Z]+";
-        Pattern pattern = Pattern.compile(regx);
-        Matcher matcher = pattern.matcher(usuario.getEmail());
-        boolean b=matcher.matches();
-        if(!matcher.matches()){
-            response.put("mensaje", "Correo ingresado incorrectamente");
-            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
-        }
 
 
         List<Usuario> isMail=usuarioDaoImpl.getUsuarioByMail(usuario.getEmail());
