@@ -27,13 +27,17 @@ Dentro de la carpeta adicional se encuentra tambien el archivo Postman **TAREA.p
 
 **crearUsuario:** crea un nuevo usuario.
 **Requisitos:** solo crea un usuario; si el correo no se ha ingresado previamente y el mail sigue el siguiente formato **nombre@serverCorreo.cl**; Ademas el password debe tener mayusculas, minusculas y signos.
+
 **POST** http://localhost:8080/usuario
 
 **getUsuario:** Obtiene un usuario ya registrado.
+
 **GET** http://localhost:8080/usuario/{id}
 
-**actualizarUsuario:** actualiza campos del registro
+**actualizarUsuario:** actualiza campos del registro.
+
 **PATCH** http://localhost:8080/usuario/{id}
 
-**eliminaUsuario:** actualiza campos del registro
+**eliminaUsuario:** actualiza campos del registro.
+
 **DELETE** http://localhost:8080/usuario/{id}
