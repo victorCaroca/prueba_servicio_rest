@@ -27,7 +27,7 @@ Dentro de la carpeta adicional se encuentra también el archivo Postman **TAREA.
 
 **crearUsuario:** crea un nuevo usuario.
 
-**Requisitos:** solo crea un usuario; si el correo no se ha ingresado previamente y el mail sigue el siguiente formato **nombre@serverCorreo.cl**Además, el password debe tener mayúsculas, minúsculas y signos.
+**Requisitos:** solo crea un usuario; si el correo no se ha ingresado previamente y el mail sigue el siguiente formato **nombre@serverCorreo.cl**, Además el password debe tener mayúsculas, minúsculas y signos.
 
 **POST** http://localhost:8080/usuario
 
