@@ -4,7 +4,7 @@ Código de la prueba del servicio Rest.
 
 ## Instalar la BD
 
-la base de datos fue creada en PHPmyAdmin, simplemente se debe crear una base de datos llamada prueba y se ejecuta el Script; el Script Sql se encuentra en la carpeta **adicional**, con el nombre de **BD.sql**.
+la base de datos fue creada en PHPmyAdmin, simplemente se debe crear una base de datos llamada prueba y se ejecuta el Script; el Sql se encuentra en la carpeta **adicional**, con el nombre de **BD.sql**.
 
 ## Configurar la coneccion a la BD
 
